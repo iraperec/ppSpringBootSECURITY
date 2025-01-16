@@ -3,14 +3,14 @@ package com.iraperec.ppSpringBoot.services;
 import com.iraperec.ppSpringBoot.dao.UserDAO;
 import com.iraperec.ppSpringBoot.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
 
-@Component
-public class UserService {
+@Service
+public class UserService implements IntUS{
 
     private final UserDAO userDAO;
 
@@ -19,11 +19,12 @@ public class UserService {
         this.userDAO = userDAO;
     }
 
+    @Transactional(readOnly = true)
     public List<User> index() {
         return userDAO.index();
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public User show(int id) {
         return userDAO.show(id);
     }
