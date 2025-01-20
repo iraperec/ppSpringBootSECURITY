@@ -1,37 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <meta charset="UTF-8">
-    <title>All users</title>
+    <title>Spring Security Example</title>
 </head>
 <body>
-<h1> Users</h1>
-<table border="5">
-    <tr style="color: blueviolet">
-        <th>Id</th>
-        <th>Name</th>
-        <th>Age</th>
-    </tr>
-    <tr>
-    <tr th:each="user : ${users}">
-        <td th:utext="${user.getId()}"></td>
-        <td th:utext="${user.getName()}"></td>
-        <td th:utext="${user.getAge()}"></td>
-        <td>
-            <form th:method="DELETE" th:action="@{/{id}(id=${user.getId()})}">
-                <input type="submit" value="Delete">
-            </form>
-        </td>
-        <td>
-            <a th:href="@{/{id}/edit(id=${user.getId()})}">Edit</a>
-        </td>
-        <td>
-            <a th:href="@{/{id}(id=${user.getId()})}">Show user</a>
+<h1>Welcome to Index PAGE!</h1>
 
-        </td>
-    </tr>
-</table>
-
-<a th:href="@{/new}">Create new user</a>
 </body>
 </html>

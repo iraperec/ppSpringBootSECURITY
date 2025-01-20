@@ -6,16 +6,26 @@
 </head>
 <body>
 
-<form th:method="PATCH" th:action="@{/{id}(id=${user.getId()})}" th:object="${user}">
+<form th:method="PATCH" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">
     <label for="name">Enter name:</label>
-    <input type="text" th:field="*{name}" id="name">
-    <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+    <input type="text" th:field="*{username}" id="name">
+    <div style="color: red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username error</div>
     <br/>
     <label for="age">Enter age:</label>
     <input type="text" th:field="*{age}" id="age">
-    <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</div>
+    <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
     <br/>
+    <label for="password">Enter password:</label>
+    <input type="password" th:field="*{password}" id="password">
+    <br />
+    <label th:for="role">Enter role:</label>
+    <input type="role" th:field="*{roles}" id="role">
+    <br>
+
     <input type="submit" value="UPDATE"/>
+</form>
+<form th:method="POST" th:action="@{/logout}">
+    <button type="submit">Log out</button>
 </form>
 
 </body>
